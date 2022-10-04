@@ -65,5 +65,5 @@ class SearchMovieResult extends INetworkModel<SearchMovieResult> {
   Map<String, dynamic> toJson() => _$SearchMovieResultToJson(this);
 
   @override
-  SearchMovieResult fromJson(Map<String, dynamic>? json)=>_$SearchMovieResultFromJson(json??{});
+  SearchMovieResult fromJson(Map<String, dynamic> json)=>_$SearchMovieResultFromJson(json);
 }
