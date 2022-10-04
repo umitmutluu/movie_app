@@ -64,11 +64,11 @@ class MovieDetailModel extends INetworkModel<MovieDetailModel> {
   Map<String, dynamic> toJson() =>_$MovieDetailModelToJson(this);
 
   @override
-  MovieDetailModel fromJson(Map<String, dynamic>? json) =>_$MovieDetailModelFromJson(json??{});
+  MovieDetailModel fromJson(Map<String, dynamic> json) =>_$MovieDetailModelFromJson(json);
 
 }
 @JsonSerializable()
-class BelongsToCollection {
+class BelongsToCollection extends INetworkModel<BelongsToCollection>{
   int? id;
   String? name;
   String? posterPath;
@@ -77,11 +77,14 @@ class BelongsToCollection {
   BelongsToCollection({this.id, this.name, this.posterPath, this.backdropPath});
 
   factory BelongsToCollection.fromJson(Map<String, dynamic> json) =>_$BelongsToCollectionFromJson(json);
-
+@override
   Map<String, dynamic> toJson()=> _$BelongsToCollectionToJson(this);
+
+  @override
+  BelongsToCollection fromJson(Map<String, dynamic> json) => _$BelongsToCollectionFromJson(json);
 }
 @JsonSerializable()
-class Genres {
+class Genres extends INetworkModel<Genres> {
   int? id;
   String? name;
 
@@ -89,10 +92,14 @@ class Genres {
 
   factory Genres.fromJson(Map<String, dynamic> json) => _$GenresFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() =>_$GenresToJson(this);
+
+  @override
+  Genres fromJson(Map<String, dynamic> json) => _$GenresFromJson(json);
 }
 @JsonSerializable()
-class ProductionCompanies {
+class ProductionCompanies extends INetworkModel<ProductionCompanies>{
   int? id;
   String? logoPath;
   String? name;
@@ -102,10 +109,14 @@ class ProductionCompanies {
 
   factory ProductionCompanies.fromJson(Map<String, dynamic> json) =>_$ProductionCompaniesFromJson(json);
 
+  @override
   Map<String, dynamic> toJson()=>_$ProductionCompaniesToJson(this);
+
+  @override
+  ProductionCompanies fromJson(Map<String, dynamic> json) =>_$ProductionCompaniesFromJson(json);
 }
 @JsonSerializable()
-class ProductionCountries {
+class ProductionCountries extends INetworkModel<ProductionCountries>{
   String? iso31661;
   String? name;
 
@@ -113,10 +124,16 @@ class ProductionCountries {
 
   factory ProductionCountries.fromJson(Map<String, dynamic> json) => _$ProductionCountriesFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() =>_$ProductionCountriesToJson(this);
+
+  @override
+  ProductionCountries fromJson(Map<String, dynamic> json) =>_$ProductionCountriesFromJson(json);
+
 }
+
 @JsonSerializable()
-class SpokenLanguages {
+class SpokenLanguages extends INetworkModel<SpokenLanguages>{
   String? englishName;
   String? iso6391;
   String? name;
@@ -125,5 +142,9 @@ class SpokenLanguages {
 
   factory SpokenLanguages.fromJson(Map<String, dynamic> json) => _$SpokenLanguagesFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$SpokenLanguagesToJson(this);
+
+  @override
+  SpokenLanguages fromJson(Map<String, dynamic> json) =>_$SpokenLanguagesFromJson(json);
 }
