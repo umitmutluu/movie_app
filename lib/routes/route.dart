@@ -4,12 +4,11 @@ import 'package:movie_app/views/search_view/search_view.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
 
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(
-            builder: (BuildContext context) => const SearchView());
+            builder: (BuildContext context) =>  SearchView());
 
       default:
         return MaterialPageRoute(

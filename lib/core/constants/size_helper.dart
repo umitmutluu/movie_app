@@ -2,7 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-
+import 'package:movie_app/core/utilities/developer_log.dart';
 class SizeHelper {
   static final SizeHelper _instance = SizeHelper._internal();
 
@@ -11,21 +11,21 @@ class SizeHelper {
   }
 
   SizeHelper._internal() {
-    print("SizeHelper oluşturuldu");
+    "SizeHelper oluşturuldu".log();
   }
 
   BuildContext? _context;
   BuildContext? get context => _context;
   set context(BuildContext? context) {
     _context = context;
-    print("SizeHelper context setted");
+    "SizeHelper context setted".log();
   }
 
   EdgeInsets? _padding;
   EdgeInsets? get padding => _padding;
   set padding(EdgeInsets? ei) {
     _padding = ei;
-    print("SizeHelper padding setted");
+    "SizeHelper padding setted".log();
   }
 
   Size? _size;

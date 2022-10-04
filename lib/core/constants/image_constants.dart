@@ -1,14 +1,14 @@
 class ImageConstants {
-  static ImageConstants? _instace;
+  static ImageConstants? _instance;
 
   static ImageConstants? get instance {
-    _instace ??= ImageConstants._init();
-    return _instace;
+    _instance ??= ImageConstants._init();
+    return _instance;
   }
 
   ImageConstants._init();
 
-  // String get backGroundStart => toPng('backGroundStart');
+  String get emptyImage => toPng('emptyImage');
 
   String toPng(String name) => 'assets/images/$name.png';
 }
