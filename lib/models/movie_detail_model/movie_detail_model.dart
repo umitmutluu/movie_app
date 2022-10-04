@@ -1,9 +1,10 @@
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
 
 part 'movie_detail_model.g.dart';
 @JsonSerializable()
-class MovieDetailModel {
+class MovieDetailModel extends INetworkModel<MovieDetailModel> {
   bool? adult;
   String? backdropPath;
   BelongsToCollection? belongsToCollection;
@@ -59,7 +60,12 @@ class MovieDetailModel {
 
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) => _$MovieDetailModelFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() =>_$MovieDetailModelToJson(this);
+
+  @override
+  MovieDetailModel fromJson(Map<String, dynamic>? json) =>_$MovieDetailModelFromJson(json??{});
+
 }
 @JsonSerializable()
 class BelongsToCollection {

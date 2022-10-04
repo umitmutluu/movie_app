@@ -1,27 +1,34 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
 
 part 'search_movie_model.g.dart';
+
 @JsonSerializable()
-class SearchMovieModel {
+class SearchMovieModel extends INetworkModel<SearchMovieModel> {
   SearchMovieModel({
     this.page,
     this.results,
     this.totalPages,
     this.totalResults,
   });
-
   int? page;
-  List<Result>? results;
+  List<SearchMovieResult>? results;
   int? totalPages;
   int? totalResults;
 
-  factory SearchMovieModel.fromJson(Map<String, dynamic> json) => _$SearchMovieModelFromJson(json);
+  factory SearchMovieModel.fromJson(Map<String, dynamic> json) =>
+      _$SearchMovieModelFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$SearchMovieModelToJson(this);
+
+  @override
+  SearchMovieModel fromJson(Map<String, dynamic>? json) =>_$SearchMovieModelFromJson(json ??{});
 }
+
 @JsonSerializable()
-class Result {
-  Result({
+class SearchMovieResult extends INetworkModel<SearchMovieResult> {
+  SearchMovieResult({
     this.adult,
     this.backdropPath,
     this.genreIds,
@@ -39,7 +46,7 @@ class Result {
 
   bool? adult;
   String? backdropPath;
-  List<int>?genreIds;
+  List<int>? genreIds;
   int? id;
   String? originalTitle;
   String? overview;
@@ -51,9 +58,12 @@ class Result {
   double? voteAverage;
   int? voteCount;
 
-  factory Result.fromJson(Map<String, dynamic> json) =>_$ResultFromJson(json);
+  factory SearchMovieResult.fromJson(Map<String, dynamic> json) =>
+      _$SearchMovieResultFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ResultToJson(this);
+  @override
+  Map<String, dynamic> toJson() => _$SearchMovieResultToJson(this);
+
+  @override
+  SearchMovieResult fromJson(Map<String, dynamic>? json)=>_$SearchMovieResultFromJson(json??{});
 }
-
-
