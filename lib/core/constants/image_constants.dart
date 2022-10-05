@@ -9,6 +9,7 @@ class ImageConstants {
   ImageConstants._init();
 
   String get emptyImage => toPng('emptyImage');
+  String get backGround => toPng('c7');
 
   String toPng(String name) => 'assets/images/$name.png';
 }

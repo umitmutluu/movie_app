@@ -1,5 +1,5 @@
 import 'package:movie_app/product/models/movie_detail_model/movie_detail_model.dart';
-import 'package:movie_app/views/movie_detail_view/movie_detail_service/I_detail_service.dart';
+import 'package:movie_app/views/movie_detail_view/movie_detail_service/i_detail_service.dart';
 import 'package:vexana/vexana.dart';
 
 class DetailService extends IDetailService {

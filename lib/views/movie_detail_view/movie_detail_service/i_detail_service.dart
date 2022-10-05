@@ -1,7 +1,6 @@
 import 'package:movie_app/core/constants/application_constant.dart';
 import 'package:movie_app/product/models/movie_detail_model/movie_detail_model.dart';
 import 'package:vexana/vexana.dart';
-
 abstract class IDetailService {
   final INetworkManager networkManager;
 
