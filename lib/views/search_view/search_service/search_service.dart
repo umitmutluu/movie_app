@@ -1,6 +1,6 @@
 import 'package:movie_app/core/utilities/network_query.dart';
 import 'package:movie_app/product/models/search_movie_model/search_movie_model.dart';
-import 'package:movie_app/views/search_view/search_service/I_search_service.dart';
+import 'package:movie_app/views/search_view/search_service/i_search_service.dart';
 import 'package:vexana/vexana.dart';
 
 class SearchService extends ISearchService {
@@ -21,10 +21,6 @@ class SearchService extends ISearchService {
     if (resultModel != null) {
       final dataList = resultModel.results;
       if (dataList != null) {
-        dataList.forEach((element) {
-          print("ne karın ağrın var ${element.title}");
-          print("ne karın ağrın imagepath ${element.posterPath}");
-        });
         return dataList;
       }
     }

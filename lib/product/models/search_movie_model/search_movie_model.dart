@@ -11,10 +11,10 @@ class SearchMovieModel extends INetworkModel<SearchMovieModel> {
     this.totalPages,
     this.totalResults,
   });
-  int? page;
-  List<SearchMovieResult>? results;
-  int? totalPages;
-  int? totalResults;
+  final int? page;
+  final List<SearchMovieResult>? results;
+  final int? totalPages;
+  final int? totalResults;
 
   factory SearchMovieModel.fromJson(Map<String, dynamic> json) =>
       _$SearchMovieModelFromJson(json);
@@ -44,19 +44,19 @@ class SearchMovieResult extends INetworkModel<SearchMovieResult> {
     this.voteCount,
   });
 
-  bool? adult;
-  String? backdropPath;
-  List<int>? genreIds;
-  int? id;
-  String? originalTitle;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  DateTime? releaseDate;
-  String? title;
-  bool? video;
-  double? voteAverage;
-  int? voteCount;
+  final bool? adult;
+  final String? backdropPath;
+  final List<int>? genreIds;
+  final int? id;
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final DateTime? releaseDate;
+  final String? title;
+  final bool? video;
+  final double? voteAverage;
+  final int? voteCount;
 
   factory SearchMovieResult.fromJson(Map<String, dynamic> json) =>
       _$SearchMovieResultFromJson(json);

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movie_app/product/models/search_movie_model/search_movie_model.dart';
-import 'package:movie_app/views/search_view/search_service/I_search_service.dart';
+import 'package:movie_app/views/search_view/search_service/i_search_service.dart';
 
 part 'search_view_event.dart';
 
@@ -43,25 +43,26 @@ class SearchViewCubit extends Cubit<SearchViewState> {
     }
   }
     Future<void> fetchSearchItemsPaging() async {
-      if (searchResultItems.length==pageNumber*10) {
-        _changeLoading();
-        emit(SearchViewSuccessState(searchResultItems));
-        if (isPagingLoading) {
-          return;
+          if (searchResultItems.length<pageNumber*100) {
+            _changeLoading();
+            emit(SearchViewSuccessState(searchResultItems));
+
+            pageNumber += 1;
+            if (isPagingLoading) {
+              return;
+            }
+            final items =
+                await searchService.fetchSearchList(page: pageNumber, query: query);
+            _changeLoading();
+            if (items != null) {
+              searchResultItems.addAll(items);
+            }
+
+
+            emit(SearchViewSuccessState(searchResultItems));
+          }
         }
 
-        pageNumber += 1;
 
-        final items =
-            await searchService.fetchSearchList(page: pageNumber, query: query);
-        _changeLoading();
-        if (items != null) {
-          searchResultItems.addAll(items);
-        }
-
-
-        emit(SearchViewSuccessState(searchResultItems));
-      }
-    }
 
 }

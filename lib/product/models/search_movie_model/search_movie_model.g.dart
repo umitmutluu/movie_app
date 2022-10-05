@@ -27,36 +27,36 @@ Map<String, dynamic> _$SearchMovieModelToJson(SearchMovieModel instance) =>
 SearchMovieResult _$SearchMovieResultFromJson(Map<String, dynamic> json) =>
     SearchMovieResult(
       adult: json['adult'] as bool?,
-      backdropPath: json['backdropPath'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
       genreIds:
           (json['genreIds'] as List<dynamic>?)?.map((e) => e as int).toList(),
       id: json['id'] as int?,
-      originalTitle: json['originalTitle'] as String?,
+      originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
       popularity: (json['popularity'] as num?)?.toDouble(),
-      posterPath: json['posterPath'] as String?,
-      releaseDate: json['releaseDate'] == null
+      posterPath: json['poster_path'] as String?,
+      releaseDate: json['release_date'] == null
           ? null
-          : DateTime.parse(json['releaseDate'] as String),
+          : DateTime.parse(json['release_date'] as String),
       title: json['title'] as String?,
       video: json['video'] as bool?,
-      voteAverage: (json['voteAverage'] as num?)?.toDouble(),
-      voteCount: json['voteCount'] as int?,
+      voteAverage: (json['vote_average'] as num?)?.toDouble(),
+      voteCount: json['vote_count'] as int?,
     );
 
 Map<String, dynamic> _$SearchMovieResultToJson(SearchMovieResult instance) =>
     <String, dynamic>{
       'adult': instance.adult,
-      'backdropPath': instance.backdropPath,
+      'backdrop_path': instance.backdropPath,
       'genreIds': instance.genreIds,
       'id': instance.id,
-      'originalTitle': instance.originalTitle,
+      'original_title': instance.originalTitle,
       'overview': instance.overview,
       'popularity': instance.popularity,
-      'posterPath': instance.posterPath,
-      'releaseDate': instance.releaseDate?.toIso8601String(),
+      'poster_path': instance.posterPath,
+      'release_date': instance.releaseDate?.toIso8601String(),
       'title': instance.title,
       'video': instance.video,
-      'voteAverage': instance.voteAverage,
-      'voteCount': instance.voteCount,
+      'vote_average': instance.voteAverage,
+      'vote_count': instance.voteCount,
     };
