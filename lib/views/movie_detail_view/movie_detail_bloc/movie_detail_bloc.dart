@@ -3,32 +3,33 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:movie_app/product/models/movie_detail_model/movie_detail_model.dart';
-import 'package:movie_app/views/movie_detail_view/movie_detail_service/I_detail_service.dart';
+import 'package:movie_app/views/movie_detail_view/movie_detail_service/i_detail_service.dart';
 
-part 'move_detail_event.dart';
+part 'movie_detail_event.dart';
 
-part 'move_detail_state.dart';
+part 'movie_detail_state.dart';
 
-class MoveDetailCubit extends Cubit<MoveDetailState> {
+class MovieDetailCubit extends Cubit<MovieDetailState> {
   IDetailService detailService;
 
   final String _movieId;
 
   late MovieDetailModel detailItems;
 
-  MoveDetailCubit(this.detailService, this._movieId)
-      : super(MoveDetailInitialState()) {
+  MovieDetailCubit(this.detailService, this._movieId)
+      : super(MovieDetailInitialState()) {
     _movieId;
+    fetchMoveDetailItem();
   }
 
   Future<void> fetchMoveDetailItem() async {
-    emit(MoveDetailLoadingState(true));
+    emit(MovieDetailLoadingState(true));
     final items = await detailService.fetchMoveDetail(movieId: _movieId);
 
     if (items == null) {
-      emit(MoveDetailErrorState());
+      emit(MovieDetailErrorState());
     } else {
-      emit(MoveDetailItemSuccessState(items));
+      emit(MovieDetailItemSuccessState(items));
     }
     if (items != null) {
       detailItems = items;
