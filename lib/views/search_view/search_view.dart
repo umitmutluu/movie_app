@@ -34,45 +34,26 @@ class SearchView extends StatelessWidget {
   }
 
   Widget buildScaffold(SearchViewState state, BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.white,
-            toolbarHeight: 50,
-            flexibleSpace: CustomTextFormField(
-              hintText: "Query...",
-              controller: searchBarEditingController,
-              onChange: (val) {
-                if (val.length > 2) {
-                  context.read<SearchViewCubit>().query = val;
-                  context.read<SearchViewCubit>().pageNumber = 1;
-                  context.read<SearchViewCubit>().fetchSearchItems();
-                }
-              },
-            )),
-        body: buildBodyText(state),
-      ),
+    return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: CustomTextFormField(
+            hintText: "Query...",
+            controller: searchBarEditingController,
+            onChange: context.read<SearchViewCubit>().onValueChange,
+          )),
+      body: buildBodyText(state, context),
     );
   }
 
-  Widget buildBodyText(SearchViewState state) {
+  Widget buildBodyText(SearchViewState state, BuildContext context) {
     if (state is SearchViewInitialState) {
       return state.buildWidget();
     } else if (state is SearchViewLoadingState) {
       return const Center(child: CircularProgressIndicator());
     } else if (state is SearchViewSuccessState) {
       return NotificationListener<ScrollNotification>(
-          onNotification: (ScrollNotification notification) {
-            if (notification.metrics.pixels >=
-                    notification.metrics.maxScrollExtent &&
-                !notification.metrics.outOfRange) {
-              final _context = notification.context;
-              if (_context != null) {
-                _context.read<SearchViewCubit>().fetchSearchItemsPaging();
-              }
-            }
-            return true;
-          },
+          onNotification: context.read<SearchViewCubit>().onNotification,
           child: state.buildWidget());
     }
     throw WidgetNotFoundException<SearchView, SearchViewState>(state);
