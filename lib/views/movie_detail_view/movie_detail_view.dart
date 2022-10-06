@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/constants/app_colors.dart';
 import 'package:movie_app/core/constants/project_constant.dart';
 import 'package:movie_app/core/exception/widget_not_found_exception.dart';
 import 'package:movie_app/views/movie_detail_view/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:movie_app/views/movie_detail_view/movie_detail_view_extension.dart';
+
 import 'movie_detail_service/detail_service.dart';
 
 class MovieDetailView extends StatelessWidget {
   final String? movieID;
 
-  const MovieDetailView({Key? key,  this.movieID}) : super(key: key);
+  const MovieDetailView({Key? key, this.movieID}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final movieCubit = MovieDetailCubit(
-        DetailService(ProjectConstants.instance.networkManager), movieID!);
+        DetailService(ProjectConstants.instance.networkManager),
+        movieId: movieID);
     return BlocProvider(
       lazy: true,
       create: (context) => movieCubit,
@@ -22,7 +25,7 @@ class MovieDetailView extends StatelessWidget {
         listener: (context, state) {
           if (state is MovieDetailErrorState) {}
           if (state is MovieDetailInitialState) {
-            // state.navigate();
+            state.buildWidget();
           }
         },
         builder: (context, state) {
@@ -33,21 +36,19 @@ class MovieDetailView extends StatelessWidget {
   }
 
   Widget buildScaffold(MovieDetailState state, BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.black,
-              )),
-          title:
-              const Text("Movie Title", style: TextStyle(color: Colors.black)),
-        ),
-        body: buildBodyText(state, context),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: AppColor.instance?.black,
+            )),
+        title: Text("Movie Title",
+            style: TextStyle(color: AppColor.instance?.black)),
       ),
+      body: buildBodyText(state, context),
     );
   }
 
