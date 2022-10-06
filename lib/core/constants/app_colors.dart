@@ -11,5 +11,5 @@ class AppColor {
   AppColor._init();
 
   Color get lightWhite => const Color.fromRGBO(222, 232, 230, 1);
-
+  Color get black => const Color.fromRGBO(1, 1, 1, 1);
 }

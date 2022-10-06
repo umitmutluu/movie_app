@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/constants/app_colors.dart';
 import 'package:movie_app/core/constants/application_constant.dart';
 import 'package:movie_app/core/constants/image_constants.dart';
 
@@ -72,8 +73,8 @@ class SmallMovieItemTile extends StatelessWidget {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     overflow: TextOverflow.visible,
-                    style: const TextStyle(
-                      color: Colors.black,
+                    style: TextStyle(
+                      color: AppColor.instance?.black,
                       fontSize: 10,
                     ),
                   ),

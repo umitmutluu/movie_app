@@ -18,7 +18,6 @@ class SearchService extends ISearchService {
         ],
       ),
     );
-    print("respınse ${response.data}");
     final resultModel = response.data;
     if (resultModel != null) {
       final dataList = SearchMovieModel.fromJson(resultModel);

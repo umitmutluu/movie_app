@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/constants/image_constants.dart';
-import 'package:movie_app/product/features/item_tile.dart';
+import 'package:movie_app/product/features/small_movie_item_tile.dart';
 import 'package:movie_app/views/movie_detail_view/movie_detail_view.dart';
 import 'package:movie_app/views/search_view/search_view_bloc/search_view_bloc.dart';
 
@@ -60,7 +60,7 @@ extension SearchListItemWidget on SearchViewSuccessState {
                 ),
               );
             },
-            child: ItemTile(
+            child: SmallMovieItemTile(
                 id: items[index].id.toString(),
                 image: items[index].posterPath,
                 movieTitle: items[index].title,
