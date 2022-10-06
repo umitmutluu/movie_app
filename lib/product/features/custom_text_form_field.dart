@@ -6,7 +6,7 @@ class CustomTextFormField extends TextFormField {
 
   CustomTextFormField(
       {Key? key,
-        required String hintText,
+         String? hintText,
         String? toolTipName,
         TextStyle? textStyle,
         int?maxLine,
@@ -14,7 +14,7 @@ class CustomTextFormField extends TextFormField {
         Color? colorCursor,
         bool? autoFocus,
         Widget? prefixIcon,
-        required TextEditingController controller,
+         TextEditingController? controller,
         TextInputType? textInputType = TextInputType.text,
         int? maxLength,
         TextAlignVertical? textAlignVertical = TextAlignVertical.center})
@@ -28,27 +28,15 @@ class CustomTextFormField extends TextFormField {
       maxLines: 1,
       decoration: const InputDecoration(
         hintText: 'Query...',
-        border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54),
-            gapPadding: 8),
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54),
-            gapPadding: 8),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black54),
-            gapPadding: 8),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black54,
-            ),
-            gapPadding: 8),
-        errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54),
-            gapPadding: 8),
-        focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54),
-            gapPadding: 8),
+        isDense: false,hoverColor: Colors.transparent,fillColor: Colors.transparent,alignLabelWithHint: false,
         hintStyle: TextStyle(color: Color(0xFF888888), fontSize: 12),
         labelStyle: TextStyle(color: Color(0xFF888888), fontSize: 12),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
+          ),
         counterText: '',
       ),
       maxLengthEnforcement: MaxLengthEnforcement.enforced,
