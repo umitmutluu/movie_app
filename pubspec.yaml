@@ -13,31 +13,34 @@ dependencies:
     sdk: flutter
 
 # SERVICE
-  kartal: ^2.0.0
-  vexana: ^2.2.1
+  dio: ^4.0.6
+
 # PARSING
   json_serializable: ^6.3.1
   json_annotation: ^4.6.0
+
+# UI PROVIDER
   cupertino_icons: ^1.0.2
+
 # STATE MANAGEMENT
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
-  provider: ^6.0.2
-  equatable: ^2.0.3
-# CACHE
-  cached_network_image: ^3.2.0
-
-
-
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 # BUILD
   build_runner: ^2.1.8
-  flutter_lints: ^1.0.0
-flutter:
 
+# ANALYSIS
+  flutter_lints: ^1.0.0
+
+# TEST
+  flutter_driver:
+    sdk: flutter
+  test: 1.21.4
+
+flutter:
   uses-material-design: true
 
   assets:
