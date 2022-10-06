@@ -1,10 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
 
 part 'search_movie_model.g.dart';
 
 @JsonSerializable()
-class SearchMovieModel extends INetworkModel<SearchMovieModel> {
+class SearchMovieModel {
   SearchMovieModel({
     this.page,
     this.results,
@@ -19,15 +18,11 @@ class SearchMovieModel extends INetworkModel<SearchMovieModel> {
   factory SearchMovieModel.fromJson(Map<String, dynamic> json) =>
       _$SearchMovieModelFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$SearchMovieModelToJson(this);
-
-  @override
-  SearchMovieModel fromJson(Map<String, dynamic>? json) =>_$SearchMovieModelFromJson(json ??{});
 }
 
 @JsonSerializable()
-class SearchMovieResult extends INetworkModel<SearchMovieResult> {
+class SearchMovieResult {
   SearchMovieResult({
     this.adult,
     this.backdropPath,
@@ -61,9 +56,5 @@ class SearchMovieResult extends INetworkModel<SearchMovieResult> {
   factory SearchMovieResult.fromJson(Map<String, dynamic> json) =>
       _$SearchMovieResultFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$SearchMovieResultToJson(this);
-
-  @override
-  SearchMovieResult fromJson(Map<String, dynamic> json)=>_$SearchMovieResultFromJson(json);
 }

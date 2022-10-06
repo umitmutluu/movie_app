@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/constants/application_constant.dart';
 import 'package:movie_app/core/constants/image_constants.dart';
 
-class ItemTile extends StatelessWidget {
+class SmallMovieItemTile extends StatelessWidget {
   final String? image;
   final String? movieTitle;
   final String? point;
   final String? id;
 
-  const ItemTile({Key? key, this.image, this.movieTitle, this.point, this.id})
+  const SmallMovieItemTile(
+      {Key? key, this.image, this.movieTitle, this.point, this.id})
       : super(key: key);
 
   @override

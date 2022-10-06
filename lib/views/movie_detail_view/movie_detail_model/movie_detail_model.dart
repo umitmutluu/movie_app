@@ -1,10 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
 
 part 'movie_detail_model.g.dart';
 
 @JsonSerializable()
-class MovieDetailModel extends INetworkModel<MovieDetailModel> {
+class MovieDetailModel {
   final bool? adult;
   final String? backdropPath;
   final BelongsToCollection? belongsToCollection;
@@ -61,16 +60,11 @@ class MovieDetailModel extends INetworkModel<MovieDetailModel> {
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) =>
       _$MovieDetailModelFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$MovieDetailModelToJson(this);
-
-  @override
-  MovieDetailModel fromJson(Map<String, dynamic> json) =>
-      _$MovieDetailModelFromJson(json);
 }
 
 @JsonSerializable()
-class BelongsToCollection extends INetworkModel<BelongsToCollection> {
+class BelongsToCollection {
   final int? id;
   final String? name;
   final String? posterPath;
@@ -81,16 +75,11 @@ class BelongsToCollection extends INetworkModel<BelongsToCollection> {
   factory BelongsToCollection.fromJson(Map<String, dynamic> json) =>
       _$BelongsToCollectionFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$BelongsToCollectionToJson(this);
-
-  @override
-  BelongsToCollection fromJson(Map<String, dynamic> json) =>
-      _$BelongsToCollectionFromJson(json);
 }
 
 @JsonSerializable()
-class Genres extends INetworkModel<Genres> {
+class Genres {
   final int? id;
   final String? name;
 
@@ -98,15 +87,11 @@ class Genres extends INetworkModel<Genres> {
 
   factory Genres.fromJson(Map<String, dynamic> json) => _$GenresFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$GenresToJson(this);
-
-  @override
-  Genres fromJson(Map<String, dynamic> json) => _$GenresFromJson(json);
 }
 
 @JsonSerializable()
-class ProductionCompanies extends INetworkModel<ProductionCompanies> {
+class ProductionCompanies {
   final int? id;
   final String? logoPath;
   final String? name;
@@ -117,16 +102,11 @@ class ProductionCompanies extends INetworkModel<ProductionCompanies> {
   factory ProductionCompanies.fromJson(Map<String, dynamic> json) =>
       _$ProductionCompaniesFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$ProductionCompaniesToJson(this);
-
-  @override
-  ProductionCompanies fromJson(Map<String, dynamic> json) =>
-      _$ProductionCompaniesFromJson(json);
 }
 
 @JsonSerializable()
-class ProductionCountries extends INetworkModel<ProductionCountries> {
+class ProductionCountries {
   final String? iso31661;
   final String? name;
 
@@ -135,16 +115,11 @@ class ProductionCountries extends INetworkModel<ProductionCountries> {
   factory ProductionCountries.fromJson(Map<String, dynamic> json) =>
       _$ProductionCountriesFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$ProductionCountriesToJson(this);
-
-  @override
-  ProductionCountries fromJson(Map<String, dynamic> json) =>
-      _$ProductionCountriesFromJson(json);
 }
 
 @JsonSerializable()
-class SpokenLanguages extends INetworkModel<SpokenLanguages> {
+class SpokenLanguages {
   final String? englishName;
   final String? iso6391;
   final String? name;
@@ -154,10 +129,5 @@ class SpokenLanguages extends INetworkModel<SpokenLanguages> {
   factory SpokenLanguages.fromJson(Map<String, dynamic> json) =>
       _$SpokenLanguagesFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$SpokenLanguagesToJson(this);
-
-  @override
-  SpokenLanguages fromJson(Map<String, dynamic> json) =>
-      _$SpokenLanguagesFromJson(json);
 }

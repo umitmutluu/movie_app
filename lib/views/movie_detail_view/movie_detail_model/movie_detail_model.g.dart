@@ -55,7 +55,7 @@ Map<String, dynamic> _$MovieDetailModelToJson(MovieDetailModel instance) =>
       'genres': instance.genres,
       'homepage': instance.homepage,
       'id': instance.id,
-      'imdbId': instance.imdbId,
+      'imdb_id': instance.imdbId,
       'original_language': instance.originalLanguage,
       'original_title': instance.originalTitle,
       'overview': instance.overview,
@@ -135,13 +135,13 @@ Map<String, dynamic> _$ProductionCountriesToJson(
 SpokenLanguages _$SpokenLanguagesFromJson(Map<String, dynamic> json) =>
     SpokenLanguages(
       englishName: json['english_name'] as String?,
-      iso6391: json['iso6391'] as String?,
+      iso6391: json['iso_639_1'] as String?,
       name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$SpokenLanguagesToJson(SpokenLanguages instance) =>
     <String, dynamic>{
       'english_name': instance.englishName,
-      'iso6391': instance.iso6391,
+      'iso_639_1': instance.iso6391,
       'name': instance.name,
     };
